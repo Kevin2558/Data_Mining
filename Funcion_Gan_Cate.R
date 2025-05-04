@@ -1,4 +1,4 @@
-# Calculo de la ganancia (beta)
+# Calculo de la ganancia para variables categóricas
 
 # Si hay variables numericas, darle categorias y escribirla entre comillas
 
