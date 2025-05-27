@@ -99,3 +99,31 @@ comparison.cloud(tdm, # Ahora se entregan los datos como matriz
                  color=brewer.pal(8,"Dark2"), # Paleta de colores
                  scale=c(2,.1), # Tamaño maximo y minimo de las palabras
                  title.size=1) # Tamaño del titulo
+
+# Ahora hagamos una nube de palabras de las plabras comunes entre los dos textos
+
+palabras_doc1 <- rownames(tdm)[tdm[,1] > 0]
+palabras_doc2 <- rownames(tdm)[tdm[,2] > 0]
+
+palabras_comunes <- intersect(palabras_doc1, palabras_doc2)
+
+tdm_comun <- tdm[rownames(tdm) %in% palabras_comunes, ] # Filtrar
+
+frecuencias_comunes <- rowSums(tdm_comun)
+frecuencias_ordenadas <- sort(frecuencias_comunes, decreasing = TRUE)
+
+# Convertir en data frame
+d <- data.frame(word = names(frecuencias_ordenadas),
+                freq = frecuencias_ordenadas)
+
+wordcloud(words = d$word,
+          freq = d$freq,
+          min.freq = 1,
+          max.words = 200,
+          random.order = FALSE,
+          rot.per = 0,  # 0 = todo horizontal
+          colors = brewer.pal(4, "Dark2"),
+          scale = c(4, 0.5))
+
+
+
