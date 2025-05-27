@@ -41,7 +41,7 @@ meta(corpus[[2]])
 # removePunctuation : elimina los signos de puntuación
 # removeNumbers : elimina los numeros
 # removeWords, stopwords("spanish") : elimina las stopwords (en español), tales
-#                                     como el, de, y, es, etc.
+# como el, de, y, es, etc. Tambien se pueden eliminar palabras especificas.
 # stripWhitespace : elimina los espacios innecesarios
 
 limpieza<-function(corpus){
