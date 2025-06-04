@@ -46,9 +46,9 @@ meta(corpus[[2]])
 
 limpieza<-function(corpus){
   corpus<-tm_map(corpus,content_transformer(tolower))
-  corpus<-tm_map(corpus, removePunctuation)
+  corpus<-tm_map(corpus,removePunctuation)
   corpus<-tm_map(corpus,removeNumbers)
-  corpus<-tm_map(corpus, removeWords, stopwords("spanish"))
+  corpus<-tm_map(corpus,removeWords, stopwords("spanish"))
   corpus<-tm_map(corpus,stripWhitespace)
   return(corpus)
 }
